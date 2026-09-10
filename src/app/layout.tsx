@@ -71,8 +71,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { MedicalSafetyBanner } from "@/components/layout/MedicalSafetyBanner";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -83,7 +81,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-clinical-50 text-clinical-950`}
       >
-        <MedicalSafetyBanner />
         {children}
       </body>
     </html>

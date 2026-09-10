@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { 
   Menu, 
   X, 
-  ShieldCheck, 
   ArrowRight,
   Activity,
   ChevronDown,
@@ -22,6 +21,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { MedicalSafetyBanner } from "@/components/layout/MedicalSafetyBanner";
 
 interface NavbarProps {
   onOpenQuickAssess?: () => void;
@@ -115,30 +115,20 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-clinical-200/80 shadow-clinical-sm py-2.5"
-          : "bg-transparent py-4"
-      )}
-    >
-      {/* Top micro-banner */}
-      <div className="hidden lg:block border-b border-clinical-200/40 bg-clinical-50/80 py-1 px-4 -mt-4 mb-2.5 text-center text-xs text-clinical-600 font-medium">
-        <span className="inline-flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-vital-500 animate-pulse" />
-          <span>Strict Physician-in-the-Loop Architecture</span>
-          <span className="text-clinical-300">•</span>
-          <span className="inline-flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-vital-600" />
-            256-Bit Encrypted & Granular Consent Controls
-          </span>
-          <span className="text-clinical-300">•</span>
-          <span>Zero third-party LLM training on private health data</span>
-        </span>
-      </div>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      {/* Top Medical & Clinical Safety Advisory Banner */}
+      <MedicalSafetyBanner />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main Navigation Bar */}
+      <div
+        className={cn(
+          "transition-all duration-300 w-full",
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-clinical-200/80 shadow-clinical-sm py-2.5"
+            : "bg-white/80 backdrop-blur-sm md:bg-white/30 md:backdrop-blur-none py-3.5"
+        )}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
@@ -342,6 +332,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Mobile Drawer */}
