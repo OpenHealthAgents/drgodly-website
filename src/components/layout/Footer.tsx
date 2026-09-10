@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
-  Activity, 
   ShieldCheck, 
   Lock, 
   HeartHandshake, 
@@ -16,8 +16,14 @@ export const Footer: React.FC = () => {
         <div className="pb-12 border-b border-clinical-800 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-vital-500/20 border border-vital-500/40 flex items-center justify-center text-vital-400">
-                <Activity className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-clinical-sm border border-vital-500/30 shrink-0">
+                <Image 
+                  src="/logo.png" 
+                  alt="DrGodly logo" 
+                  width={40} 
+                  height={40} 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-2xl font-bold tracking-tight text-white font-sans">
                 DrGodly

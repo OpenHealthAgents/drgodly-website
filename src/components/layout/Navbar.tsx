@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { 
   Menu, 
   X, 
   ArrowRight,
-  Activity,
   ChevronDown,
   ClipboardCheck,
   FileText,
@@ -132,8 +132,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-clinical-900 flex items-center justify-center text-white shadow-clinical-sm group-hover:bg-vital-700 transition-colors">
-              <Activity className="w-5 h-5 text-vital-400" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-clinical-sm border border-clinical-900/10 group-hover:scale-105 transition-transform duration-200 shrink-0">
+              <Image 
+                src="/logo.png" 
+                alt="DrGodly logo" 
+                width={40} 
+                height={40} 
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-clinical-950 font-sans flex items-center gap-1">

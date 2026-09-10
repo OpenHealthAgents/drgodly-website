@@ -64,12 +64,12 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
               </Button>
 
               <Button
-                variant="secondary"
+                variant="outline"
                 size="lg"
                 onClick={onOpenDoctorDemo}
-                icon={<Stethoscope className="w-4 h-4 text-clinical-800" />}
+                icon={<Stethoscope className="w-4 h-4 text-vital-400" />}
                 iconPosition="left"
-                className="w-full sm:w-auto text-base"
+                className="w-full sm:w-auto text-base bg-clinical-900/90 text-white border-clinical-700 hover:border-vital-500/50 hover:bg-clinical-850 shadow-md"
               >
                 Schedule Clinician Demo
               </Button>
